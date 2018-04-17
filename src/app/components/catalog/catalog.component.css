@@ -70,3 +70,8 @@
     justify-self: center;
     font-size: 20px;
 }
+
+.item-btns {
+    display: flex;
+    justify-content: space-around;
+}

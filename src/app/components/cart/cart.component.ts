@@ -19,7 +19,7 @@ export class CartComponent implements OnInit {
   removeItem(item) {
     const index = this.items.indexOf(item);
     this.items.splice(index, 1);
-    this.commonService.shirtRemovedFromCart(index);
+    this.commonService.removeFromCart(index);
   }
 
   updateQuantity(item, updateType) {

@@ -21,4 +21,13 @@ export class CatalogComponent implements OnInit {
     return "shirt-" + shirt.color + "-" + shirt.gender;
   }
 
+  addToCart(item) {
+    this.commonService.addToCart(item);
+  }
+
+  removeItem(item) {
+    const index = this.catalog.indexOf(item);
+    this.commonService.removeFromCatalog(index);
+  }
+
 }

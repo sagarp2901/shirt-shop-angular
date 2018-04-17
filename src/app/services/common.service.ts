@@ -29,8 +29,13 @@ export class CommonService {
         return this.shirtsInCart;
     }
 
-    shirtRemovedFromCart(index) {
+    removeFromCart(index) {
         this.shirtsInCart.splice(index, 1);
         this.cartUpdated.next(this.shirtsInCart);
+    }
+
+    removeFromCatalog(index) {
+        this.shirtsInCatalog.splice(index, 1);
+        this.catalogUpdated.next(this.shirtsInCatalog);
     }
 }

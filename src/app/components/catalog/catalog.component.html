@@ -6,6 +6,10 @@
   <div *ngIf="catalog && catalog.length > 0" class="catalog-container">
     <div *ngFor="let shirt of catalog" class="catalog-item">
       <div class="item-size" [ngClass]="renderShirt(shirt)"></div>
+      <div class="item-btns">
+        <button (click)="removeItem(shirt)">Delete</button>
+        <button (click)="addToCart(shirt)">Add</button>
+      </div>
       <div class="size">{{shirt.size}}</div>
       <div class="price">${{shirt.price}}</div>
     </div>
