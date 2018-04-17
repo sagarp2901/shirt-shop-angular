@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from "../../services/common.service";
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  catalogCount = 0;
+  cartCount = 0;
+
+  constructor(private commonService: CommonService) {
+    this.commonService.shirtAddedToCatalog.subscribe(shirts => {
+      console.log(shirts);
+      this.catalogCount = shirts.length;
+    });
+  }
 
   ngOnInit() {
   }

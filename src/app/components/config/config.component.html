@@ -1,3 +1,34 @@
-<p>
-  config works!
-</p>
+<div class="container">
+  <div class="button-container">
+    <div class="color-container">
+      <button (click)="updateColor('red')">Red</button>
+      <button (click)="updateColor('blue')">Blue</button>
+      <button (click)="updateColor('black')">Black</button>
+      <button (click)="updateColor('white')">White</button>
+    </div>
+    <div class="emoji-container">
+      <button>Sunny</button>
+      <button>Shocked</button>
+      <button>Laugh</button>
+    </div>
+    <div class="size-container">
+      <button (click)="updateSize('S')">Small</button>
+      <button (click)="updateSize('M')">Medium</button>
+      <button (click)="updateSize('L')">Large</button>
+    </div>
+    <div class="gender-container">
+      <button (click)="updateGender('m')">Men</button>
+      <button (click)="updateGender('w')">Women</button>
+    </div>
+  </div>
+  <div class="config-container">
+    <div class="button-container">
+      <button (click)="saveToCalalog()">Save</button>
+      <button (click)="newShirt()">New</button>
+      <button (click)="addToCart()">Add</button>
+    </div>
+    <div [ngClass]="renderShirt()"></div>
+    <div class="size">{{shirt.size}}</div>
+    <div class="price">${{shirt.price}}</div>
+  </div>
+</div>

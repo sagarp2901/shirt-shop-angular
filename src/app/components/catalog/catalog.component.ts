@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from "../../services/common.service";
 
 @Component({
   selector: 'app-catalog',
@@ -7,11 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogComponent implements OnInit {
 
-  catalog = [];
+  catalog: Array<any>;
 
-  constructor() { }
+  constructor(private commonService: CommonService) { }
 
   ngOnInit() {
+    this.catalog = this.commonService.getCatalog();
   }
 
 }
