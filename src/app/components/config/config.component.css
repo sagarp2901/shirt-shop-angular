@@ -1,0 +1,77 @@
+.container {
+    display: grid;
+}
+.button-container {
+    display: flex;
+    justify-content: space-around;
+} 
+.color-container, .emoji-container, .size-container, .gender-container {
+    display: flex;
+    justify-content: center;
+}
+
+.config-container {
+    display: grid;
+    justify-content: center;
+}
+
+.shirt-blank-m {
+    content: url("../../../assets/images/m-blank.png");
+}
+.shirt-blue-m {
+    content: url("../../../assets/images/m-blue.png");
+}
+.shirt-red-m {
+    content: url("../../../assets/images/m-red.png");
+}
+.shirt-black-m {
+    content: url("../../../assets/images/m-black.png");
+}
+
+.shirt-white-m {
+    content: url("../../../assets/images/m-white.png");
+}
+
+.shirt-blank-w {
+    content: url("../../../assets/images/w-blank.png");
+}
+.shirt-blue-w {
+    content: url("../../../assets/images/w-blue.png");
+}
+.shirt-red-w {
+    content: url("../../../assets/images/w-red.png");
+}
+.shirt-black-w {
+    content: url("../../../assets/images/w-black.png");
+}
+
+.shirt-white-w {
+    content: url("../../../assets/images/w-white.png");
+}
+
+.size{
+    position: relative;
+    top: -32vw;
+    border: 3px solid blue;
+    background-color: lightblue;
+    width: 42px;
+    height: 28px;
+    text-align: center;
+    padding-top: 5px;
+    justify-self: center;
+    font-size: 20px;
+}
+
+.price{
+    position: relative;
+    top: -22vw;
+    border: 3px dashed red;
+    background-color: rgb(235, 176, 176);;
+    width: 42px;
+    height: 28px;
+    text-align: center;
+    padding-top: 5px;
+    justify-self: center;
+    font-size: 20px;
+}
+
