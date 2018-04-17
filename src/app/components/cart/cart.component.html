@@ -1,7 +1,7 @@
 <div class="container">
   <h2>Your Cart</h2>
-  <h3 *ngIf="!items">Your cart is empty.</h3>
-  <div *ngIf="items" class="cart-container">
+  <h3 *ngIf="items.length === 0 ">Your cart is empty.</h3>
+  <div *ngIf="items.length > 0" class="cart-container">
     <div class="cart-headers">
       <div>Remove</div>
       <div>Item No.</div>

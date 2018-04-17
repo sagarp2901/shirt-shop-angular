@@ -6,19 +6,19 @@ export class CommonService {
     shirtsInCart = [];
     shirtsInCatalog = [];
 
-    public shirtAddedToCatalog = new Subject<any>();
-    public shirtAddedToCart = new Subject<any>();
+    public catalogUpdated = new Subject<any>();
+    public cartUpdated = new Subject<any>();
 
     constructor() { }
 
     addToCart(shirt) {
-        this.shirtsInCart = [...this.shirtsInCatalog, shirt];
-        this.shirtAddedToCart.next(shirt);
+        this.shirtsInCart = [...this.shirtsInCart, shirt];
+        this.cartUpdated.next(this.shirtsInCart);
     }
 
     addToCatalog(shirt) {
         this.shirtsInCatalog = [...this.shirtsInCatalog, shirt];
-        this.shirtAddedToCatalog.next(this.shirtsInCatalog);
+        this.catalogUpdated.next(this.shirtsInCatalog);
     }
 
     getCatalog() {
@@ -27,5 +27,10 @@ export class CommonService {
 
     getCart() {
         return this.shirtsInCart;
+    }
+
+    shirtRemovedFromCart(index) {
+        this.shirtsInCart.splice(index, 1);
+        this.cartUpdated.next(this.shirtsInCart);
     }
 }

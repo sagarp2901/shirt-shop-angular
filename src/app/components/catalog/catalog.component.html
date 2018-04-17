@@ -2,10 +2,12 @@
   <h2>
     <a routerLink="/config" routerLinkActive="active">Create a new shirt for your catalog</a>
   </h2>
-  <h3 *ngIf="!catalog">Your catalog is empty.</h3>
-  <div *ngIf="catalog" class="catalog">
-    <div *ngFor="let shirt of catalog">
-      <div>{{shirt.color}}</div>
+  <h3 *ngIf="catalog && catalog.length === 0">Your catalog is empty.</h3>
+  <div *ngIf="catalog && catalog.length > 0" class="catalog-container">
+    <div *ngFor="let shirt of catalog" class="catalog-item">
+      <div class="item-size" [ngClass]="renderShirt(shirt)"></div>
+      <div class="size">{{shirt.size}}</div>
+      <div class="price">${{shirt.price}}</div>
     </div>
   </div>
 </div>

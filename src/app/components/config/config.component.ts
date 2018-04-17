@@ -7,20 +7,12 @@ import { CommonService } from "../../services/common.service";
 })
 export class ConfigComponent implements OnInit {
 
-  shirt;
+  shirt: any;
 
-  constructor(private commonService: CommonService) {
-    this.shirt = {
-      color: "blank",
-      size: "S",
-      gender: "m",
-      style: "",
-      price: 10
-    }
-
-  }
+  constructor(private commonService: CommonService) { }
 
   ngOnInit() {
+    this.newShirt();
   }
 
   newShirt() {
@@ -50,11 +42,15 @@ export class ConfigComponent implements OnInit {
   }
 
   addToCart() {
-    this.commonService.addToCart(this.shirt);
+    //Create a new copy everytime or each element in the array will get overwritten
+    let shirt = Object.assign({}, this.shirt);
+    this.commonService.addToCart(shirt);
   }
 
   saveToCalalog() {
-    this.commonService.addToCatalog(this.shirt);
+    //Create a new copy everytime or each element in the array will get overwritten
+    let shirt = Object.assign({}, this.shirt);
+    this.commonService.addToCatalog(shirt);
   }
 
 }

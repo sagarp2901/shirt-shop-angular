@@ -11,14 +11,16 @@ export class NavbarComponent implements OnInit {
   catalogCount = 0;
   cartCount = 0;
 
-  constructor(private commonService: CommonService) {
-    this.commonService.shirtAddedToCatalog.subscribe(shirts => {
-      console.log(shirts);
-      this.catalogCount = shirts.length;
-    });
-  }
+  constructor(private commonService: CommonService) { }
 
   ngOnInit() {
+    this.commonService.catalogUpdated.subscribe(shirts => {
+      this.catalogCount = shirts.length;
+    });
+
+    this.commonService.cartUpdated.subscribe(shirts => {
+      this.cartCount = shirts.length;
+    });
   }
 
 }

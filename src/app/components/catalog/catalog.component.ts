@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CommonService } from "../../services/common.service";
 
 @Component({
@@ -8,12 +8,17 @@ import { CommonService } from "../../services/common.service";
 })
 export class CatalogComponent implements OnInit {
 
+  @Input()
   catalog: Array<any>;
 
   constructor(private commonService: CommonService) { }
 
   ngOnInit() {
     this.catalog = this.commonService.getCatalog();
+  }
+
+  renderShirt(shirt) {
+    return "shirt-" + shirt.color + "-" + shirt.gender;
   }
 
 }
