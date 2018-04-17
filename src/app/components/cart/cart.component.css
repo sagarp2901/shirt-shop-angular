@@ -1,0 +1,28 @@
+.cart-container {
+    display: grid;
+}
+.cart-headers, .cart-items {
+    display: flex;
+    justify-content: space-around;
+}
+
+.cart-headers {
+    font-weight: 900;
+}
+
+.delete-icon {
+    content: url("../../../assets/svgs/delete.svg");
+}
+
+.quantity-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.inc-icon {
+    content: url("../../../assets/svgs/inc.svg");
+}
+
+.dec-icon {
+    content: url("../../../assets/svgs/dec.svg");
+}

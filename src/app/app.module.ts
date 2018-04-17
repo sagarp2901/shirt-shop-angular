@@ -6,15 +6,23 @@ import { Routes, RouterModule } from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { CartComponent } from './components/cart/cart.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { CatalogComponent } from './components/catalog/catalog.component';
+import { ConfigComponent } from './components/config/config.component';
 
 const routes: Routes = [
-  { path: 'cart', component: CartComponent }
+  { path: 'cart', component: CartComponent },
+  { path: 'catalog', component: CatalogComponent },
+  { path: 'config', component: ConfigComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    CartComponent
+    CartComponent,
+    NavbarComponent,
+    CatalogComponent,
+    ConfigComponent
   ],
   imports: [
     BrowserModule,
