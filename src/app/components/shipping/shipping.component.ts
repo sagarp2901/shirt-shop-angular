@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { COUNTRIES, REGIONS } from "../../models/countries-regions.model";
 import { Router } from "@angular/router";
+
+import { CommonService } from "../../services/common.service";
 @Component({
   selector: 'app-shipping',
   templateUrl: './shipping.component.html',
@@ -13,7 +15,7 @@ export class ShippingComponent implements OnInit {
 
   shippingForm: FormGroup;
 
-  constructor(private router: Router, private formBuilder: FormBuilder) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private commonService: CommonService) {
     this.shippingForm = formBuilder.group({
       firstName: [null, Validators.required],
       lastName: [null, Validators.required],
@@ -32,6 +34,7 @@ export class ShippingComponent implements OnInit {
   }
 
   submitOrder() {
+    this.commonService.setAddress(this.shippingForm.value);
     this.router.navigateByUrl("/confirmation");
   }
 

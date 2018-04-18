@@ -21,7 +21,14 @@ export class CatalogComponent implements OnInit {
     return "shirt-" + shirt.color + "-" + shirt.gender;
   }
 
-  addToCart(item) {
+  addToCart(shirt) {
+    // Create an item for adding it to the cart
+    let item = {
+      itemNo: Math.floor(1000 + Math.random() * 9000),
+      description: "$" + shirt.price + " - " + shirt.size + " - " + shirt.gender + " - " + shirt.color,
+      quantity: 1,
+      subtotal: 0
+    };
     this.commonService.addToCart(item);
   }
 

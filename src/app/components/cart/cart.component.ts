@@ -18,7 +18,6 @@ export class CartComponent implements OnInit {
 
   removeItem(item) {
     const index = this.items.indexOf(item);
-    this.items.splice(index, 1);
     this.commonService.removeFromCart(index);
   }
 
@@ -33,16 +32,8 @@ export class CartComponent implements OnInit {
   createItemsFromCart() {
     let cart = this.commonService.getCart();
     if (cart) {
-      cart.forEach(cartItem => {
-        let item = {
-          itemNo: Math.floor(1000 + Math.random() * 9000),
-          description: "$" + cartItem.price + " - " + cartItem.size + " - " + cartItem.gender + " - " + cartItem.color,
-          quantity: 1,
-          subtotal: 100
-        };
-
-        this.items = [...this.items, item];
-      });
+      this.items = cart;
+      this.commonService.setFinalOrderItems(this.items);
     }
   }
 
