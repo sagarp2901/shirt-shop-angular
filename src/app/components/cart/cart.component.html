@@ -20,5 +20,19 @@
       <div>{{item.subtotal}}</div>
     </div>
   </div>
-  <button routerLink="/shipping">Next</button>
+  <div class="total-container">
+    <div></div>
+    <div></div>
+    <div>
+      <strong>Total</strong>
+    </div>
+    <div>
+      <strong>{{totalQuantity}}</strong>
+    </div>
+    <div>
+      <strong>{{subTotal}}</strong>
+    </div>
+
+  </div>
+  <button (click)="goToShipping()">Next</button>
 </div>

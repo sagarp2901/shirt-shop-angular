@@ -27,7 +27,8 @@ export class CatalogComponent implements OnInit {
       itemNo: Math.floor(1000 + Math.random() * 9000),
       description: "$" + shirt.price + " - " + shirt.size + " - " + shirt.gender + " - " + shirt.color,
       quantity: 1,
-      subtotal: 0
+      subtotal: 0,
+      price: shirt.price
     };
     this.commonService.addToCart(item);
   }

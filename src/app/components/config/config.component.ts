@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from "../../services/common.service";
+import { priceBySize } from "../../constants/price.constants";
+
 @Component({
   selector: 'app-config',
   templateUrl: './config.component.html',
@@ -31,6 +33,7 @@ export class ConfigComponent implements OnInit {
 
   updateSize(size) {
     this.shirt.size = size;
+    this.shirt.price = priceBySize[size];
   }
 
   updateGender(gender) {
@@ -47,7 +50,8 @@ export class ConfigComponent implements OnInit {
       itemNo: Math.floor(1000 + Math.random() * 9000),
       description: "$" + this.shirt.price + " - " + this.shirt.size + " - " + this.shirt.gender + " - " + this.shirt.color,
       quantity: 1,
-      subtotal: 0
+      subtotal: 0,
+      price: this.shirt.price
     };
     this.commonService.addToCart(item);
   }
