@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from "../../services/common.service";
+import { priceBySize } from "../../constants/price.constants";
+
 @Component({
   selector: 'app-config',
   templateUrl: './config.component.html',
@@ -31,6 +33,7 @@ export class ConfigComponent implements OnInit {
 
   updateSize(size) {
     this.shirt.size = size;
+    this.shirt.price = priceBySize[size];
   }
 
   updateGender(gender) {
@@ -42,9 +45,15 @@ export class ConfigComponent implements OnInit {
   }
 
   addToCart() {
-    //Create a new copy everytime or each element in the array will get overwritten
-    let shirt = Object.assign({}, this.shirt);
-    this.commonService.addToCart(shirt);
+    // Create an item for adding it to the cart
+    let item = {
+      itemNo: Math.floor(1000 + Math.random() * 9000),
+      description: "$" + this.shirt.price + " - " + this.shirt.size + " - " + this.shirt.gender + " - " + this.shirt.color,
+      quantity: 1,
+      subtotal: 0,
+      price: this.shirt.price
+    };
+    this.commonService.addToCart(item);
   }
 
   saveToCalalog() {

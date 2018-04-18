@@ -1,12 +1,12 @@
 .cart-container {
     display: grid;
 }
-.cart-headers, .cart-items {
+.cart-headers, .cart-items, .total-container {
     display: flex;
     justify-content: space-around;
 }
 
-.cart-headers {
+.cart-headers, .total-container {
     font-weight: 900;
 }
 

@@ -1,0 +1,13 @@
+.cart-headers, .cart-items {
+    display: flex;
+    justify-content: space-around;
+}
+
+.cart-headers {
+    font-weight: 900;
+}
+
+.shipping-container {
+    display: grid;
+    justify-content: center;
+}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from "../../services/common.service";
-
+import { Router } from "@angular/router";
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -9,8 +9,10 @@ import { CommonService } from "../../services/common.service";
 export class CartComponent implements OnInit {
 
   items: Array<any> = [];
+  totalQuantity = 0;
+  subTotal = 0;
 
-  constructor(private commonService: CommonService) { }
+  constructor(private commonService: CommonService, private router: Router) { }
 
   ngOnInit() {
     this.createItemsFromCart();
@@ -18,8 +20,8 @@ export class CartComponent implements OnInit {
 
   removeItem(item) {
     const index = this.items.indexOf(item);
-    this.items.splice(index, 1);
     this.commonService.removeFromCart(index);
+    this.recalculateTotal();
   }
 
   updateQuantity(item, updateType) {
@@ -28,22 +30,30 @@ export class CartComponent implements OnInit {
     } else if (updateType === 'decrement' && item.quantity > 1) {
       item.quantity -= 1;
     }
+    this.recalculateTotal();
   }
 
   createItemsFromCart() {
     let cart = this.commonService.getCart();
     if (cart) {
-      cart.forEach(cartItem => {
-        let item = {
-          itemNo: Math.floor(1000 + Math.random() * 9000),
-          description: "$" + cartItem.price + " - " + cartItem.size + " - " + cartItem.gender + " - " + cartItem.color,
-          quantity: 1,
-          subtotal: 100
-        };
-
-        this.items = [...this.items, item];
-      });
+      this.items = cart;
+      this.recalculateTotal();
     }
+  }
+
+  goToShipping() {
+    this.commonService.setFinalOrderItems(this.items);
+    this.router.navigateByUrl('/shipping');
+  }
+
+  recalculateTotal() {
+    this.subTotal = 0;
+    this.totalQuantity = 0;
+    this.items.forEach(item => {
+      item.subtotal = item.quantity * item.price;
+      this.totalQuantity += item.quantity;
+      this.subTotal += item.subtotal;
+    });
   }
 
 
