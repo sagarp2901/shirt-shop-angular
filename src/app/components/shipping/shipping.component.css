@@ -1,0 +1,48 @@
+.container {
+    display: grid;
+    justify-content: center;
+}
+
+.label {
+    margin-bottom: 0.2vw;
+    margin-top: 0.8vw;
+}
+
+input {
+    width: 15vw;
+    height: 2vh;
+}
+
+select {
+    width: 100%;
+    height: 2.5vh;
+}
+.alert {
+    width: 11vw;
+    margin-top: 0.8vw;
+    color: red;
+    padding: 1px;
+    font-size: 0.62vw;
+    animation: 1s alertAnim forwards;
+  }
+  
+  @keyframes alertAnim {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(-10px);
+    }
+  }
+
+  .submit-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 3vh;
+  }
+  button {
+      width:12vw;
+      height: 3vh;
+  }

@@ -1,0 +1,42 @@
+<div class="container">
+  <form [formGroup]="shippingForm" (ngSubmit)="submitOrder()">
+    <div class="label">First Name</div>
+    <input type="text" formControlName="firstName" />
+    <div class="alert" *ngIf="!shippingForm.controls['firstName'].valid && shippingForm.controls['firstName'].touched">First Name Required</div>
+    <div class="label">Last Name</div>
+    <input type="text" formControlName="lastName" />
+    <div class="alert" *ngIf="!shippingForm.controls['lastName'].valid && shippingForm.controls['lastName'].touched">Last Name Required</div>
+    <div class="label">Email</div>
+    <input type="text" formControlName="email" />
+    <div class="alert" *ngIf="!shippingForm.controls['email'].valid && shippingForm.controls['email'].touched">Email Required</div>
+    <div class="label">Phone Number</div>
+    <input type="text" formControlName="phone" />
+    <div class="alert" *ngIf="!shippingForm.controls['phone'].valid && shippingForm.controls['phone'].touched">Phone Required</div>
+    <div class="label">Address</div>
+    <input type="text" formControlName="address" />
+    <div class="alert" *ngIf="!shippingForm.controls['address'].valid && shippingForm.controls['address'].touched">Address Required</div>
+    <div class="label">City</div>
+    <input type="text" formControlName="city" />
+    <div class="alert" *ngIf="!shippingForm.controls['city'].valid && shippingForm.controls['city'].touched">City Required</div>
+    <div class="label">Country</div>
+    <select formControlName="country">
+      <option value="" selected> Please select</option>
+      <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+    </select>
+    <div class="alert" *ngIf="!shippingForm.controls['country'].valid && shippingForm.controls['country'].touched">Country Required</div>
+    <div class="label">State</div>
+    <select formControlName="state">
+      <option value="" selected> Please select</option>
+      <option *ngFor="let state of states[shippingForm.value.country]" [value]="state">{{ state }}</option>
+    </select>
+    <div class="alert" *ngIf="!shippingForm.controls['state'].valid && shippingForm.controls['state'].touched">State Required</div>
+    <div class="label">Zip Code</div>
+    <input type="text" formControlName="zip" />
+    <div class="alert" *ngIf="!shippingForm.controls['zip'].valid && shippingForm.controls['zip'].touched">Zip Required</div>
+    <div class="label">Special Instructions</div>
+    <input type="text" formControlName="instructions" />
+    <div class="submit-btn">
+      <button type="submit" [disabled]="!shippingForm.valid">Submit Order</button>
+    </div>
+  </form>
+</div>
