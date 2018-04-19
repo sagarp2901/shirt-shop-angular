@@ -1,17 +1,29 @@
 <div class="container">
-  <div class="cart-container">
-    <h2>Thank You for your order</h2>
+  <h2>Thank You for your order</h2>
+  <div *ngIf="finalCart" class="cart-container">
     <div class="cart-headers">
       <div>Item No.</div>
       <div>Description</div>
       <div>Quantity</div>
       <div>Subtotal</div>
     </div>
-    <div *ngFor="let item of cartItems" class="cart-items">
+    <div *ngFor="let item of finalCart.items" class="cart-items">
       <div>{{item.itemNo}}</div>
       <div>{{item.description}}</div>
       <div class="quantity-container">{{item.quantity}}</div>
       <div>{{item.subtotal}}</div>
+    </div>
+  </div>
+  <div class="total-container">
+    <div></div>
+    <div>
+      <strong>Total</strong>
+    </div>
+    <div>
+      <strong>{{finalCart.totalQuantity}}</strong>
+    </div>
+    <div>
+      <strong>${{finalCart.totalPrice}}</strong>
     </div>
   </div>
   <h2>Shipping Information</h2>

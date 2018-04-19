@@ -5,7 +5,7 @@ import { Observable, Subject } from "rxjs";
 export class CommonService {
     shirtsInCart = [];
     shirtsInCatalog = [];
-    finalItems = [];
+    finalItems: any;
 
     address: any;
 

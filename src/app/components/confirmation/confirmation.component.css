@@ -1,4 +1,4 @@
-.cart-headers, .cart-items {
+.cart-headers, .cart-items, .total-container {
     display: flex;
     justify-content: space-around;
 }

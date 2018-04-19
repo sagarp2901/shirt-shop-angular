@@ -7,6 +7,8 @@ import { CommonService } from "../../services/common.service";
 })
 export class ConfirmationComponent implements OnInit {
 
+  finalCart: any;
+
   cartItems: Array<any>;
 
   address: any;
@@ -14,8 +16,7 @@ export class ConfirmationComponent implements OnInit {
   constructor(private commonService: CommonService) { }
 
   ngOnInit() {
-    this.cartItems = this.commonService.getFinalOrderItems();
+    this.finalCart = this.commonService.getFinalOrderItems();
     this.address = this.commonService.getAddress();
   }
-
 }
