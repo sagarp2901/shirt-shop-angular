@@ -1,12 +1,9 @@
-.cart-container {
-    display: grid;
-}
 .cart-headers, .cart-items, .total-container {
     display: flex;
     justify-content: space-around;
 }
 
-.cart-headers, .total-container {
+.cart-headers {
     font-weight: 900;
 }
 

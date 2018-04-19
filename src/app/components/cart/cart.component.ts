@@ -10,7 +10,7 @@ export class CartComponent implements OnInit {
 
   items: Array<any> = [];
   totalQuantity = 0;
-  subTotal = 0;
+  totalPrice = 0;
 
   constructor(private commonService: CommonService, private router: Router) { }
 
@@ -42,17 +42,22 @@ export class CartComponent implements OnInit {
   }
 
   goToShipping() {
-    this.commonService.setFinalOrderItems(this.items);
+    let finalOrder = {
+      items: this.items,
+      totalQuantity: this.totalQuantity,
+      totalPrice: this.totalPrice
+    }
+    this.commonService.setFinalOrderItems(finalOrder);
     this.router.navigateByUrl('/shipping');
   }
 
   recalculateTotal() {
-    this.subTotal = 0;
+    this.totalPrice = 0;
     this.totalQuantity = 0;
     this.items.forEach(item => {
       item.subtotal = item.quantity * item.price;
       this.totalQuantity += item.quantity;
-      this.subTotal += item.subtotal;
+      this.totalPrice += item.subtotal;
     });
   }
 

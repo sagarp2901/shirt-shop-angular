@@ -26,11 +26,15 @@ export class ShippingComponent implements OnInit {
       country: ["", Validators.required],
       state: ["", Validators.required],
       zip: [null, Validators.required],
-      instructions: [null],
+      instructions: [""],
     });
   }
 
   ngOnInit() {
+    let address = this.commonService.getAddress();
+    if (address) {
+      this.shippingForm.setValue(address);
+    }
   }
 
   submitOrder() {
