@@ -1,6 +1,7 @@
 .cart-headers, .cart-items, .total-container {
     display: flex;
     justify-content: space-around;
+    text-align: center;
 }
 
 .cart-headers {
@@ -22,4 +23,20 @@
 
 .dec-icon {
     content: url("../../../assets/svgs/dec.svg");
+}
+
+.flex-no {
+    flex-basis: 5%;
+}
+
+.flex-des {
+flex-basis: 40%;
+}
+
+.flex-del, .flex-sub {
+    flex-basis: 35%;
+}
+
+.flex-quant {
+    flex-basis: 10%;
 }

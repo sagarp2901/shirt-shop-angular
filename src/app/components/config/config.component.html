@@ -27,7 +27,7 @@
       <button (click)="newShirt()">New</button>
       <button (click)="addToCart()">Add</button>
     </div>
-    <div [ngClass]="renderShirt()"></div>
+    <div class="shirt-size" [ngClass]="renderShirt()"></div>
     <div class="size">{{shirt.size}}</div>
     <div class="price">${{shirt.price}}</div>
   </div>

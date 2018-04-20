@@ -9,8 +9,6 @@ export class ConfirmationComponent implements OnInit {
 
   finalCart: any;
 
-  cartItems: Array<any>;
-
   address: any;
 
   constructor(private commonService: CommonService) { }

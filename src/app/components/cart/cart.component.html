@@ -3,33 +3,33 @@
   <h3 *ngIf="items.length === 0 ">Your cart is empty.</h3>
   <div *ngIf="items.length > 0" class="cart-container">
     <div class="cart-headers">
-      <div>Remove</div>
-      <div>Item No.</div>
-      <div>Description</div>
-      <div>Quantity</div>
-      <div>Subtotal</div>
+      <div class="flex-del">Remove</div>
+      <div class="flex-no">Item No.</div>
+      <div class="flex-des">Description</div>
+      <div class="flex-quant">Quantity</div>
+      <div class="flex-sub">Subtotal</div>
     </div>
     <div *ngFor="let item of items" class="cart-items">
-      <div class="delete-icon" (click)="removeItem(item)"></div>
-      <div>{{item.itemNo}}</div>
-      <div>{{item.description}}</div>
-      <div class="quantity-container">
+      <div class="delete-icon flex-del" (click)="removeItem(item)"></div>
+      <div class="flex-no">{{item.itemNo}}</div>
+      <div class="flex-des">{{item.description}}</div>
+      <div class="quantity-container flex-quant">
         <div class="dec-icon" (click)="updateQuantity(item, 'decrement')"></div>{{item.quantity}}
         <div class="inc-icon" (click)="updateQuantity(item, 'increment')"></div>
       </div>
-      <div>{{item.subtotal}}</div>
+      <div class="flex-sub">{{item.subtotal}}</div>
     </div>
   </div>
   <div class="total-container">
-    <div></div>
-    <div></div>
-    <div>
+    <div class="flex-del"></div>
+    <div class="flex-no"></div>
+    <div class="flex-des">
       <strong>Total</strong>
     </div>
-    <div>
+    <div class="flex-quant">
       <strong>{{totalQuantity}}</strong>
     </div>
-    <div>
+    <div class="flex-sub">
       <strong>${{totalPrice}}</strong>
     </div>
   </div>
