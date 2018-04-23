@@ -16,8 +16,8 @@
 }
 
 .shirt-size {
-    width: 30vw;
-    height: 35vw;
+    width: 550px;
+    height: 650px;
 }
 
 .shirt-blank-m {
@@ -56,27 +56,27 @@
 
 .size{
     position: relative;
-    top: -32vw;
+    top: -620px;
     border: 3px solid blue;
     background-color: lightblue;
-    width: 2vw;
-    height: 1.5vw;
+    width: 45px;
+    height: 37px;
     text-align: center;
-    padding-top: 0.4vw;
+    padding-top: 6px;
     justify-self: center;
-    font-size: 1.05vw;
+    font-size: 25px;
 }
 
 .price{
     position: relative;
-    top: -22vw;
+    top: -450px;
     border: 3px dashed red;
     background-color: rgb(235, 176, 176);;
-    width: 3vw;
-    height: 1.5vw;
+    width: 45px;
+    height: 37px;
     text-align: center;
-    padding-top: 0.4vw;
+    padding-top: 6px;
     justify-self: center;
-    font-size: 1.05vw;
+    font-size: 25px;
 }
 
