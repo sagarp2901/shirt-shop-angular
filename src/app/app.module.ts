@@ -15,13 +15,20 @@ import { ConfigComponent } from './components/config/config.component';
 import { CommonService } from "./services/common.service";
 import { ShippingComponent } from './components/shipping/shipping.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  { path: 'cart', component: CartComponent },
-  { path: 'catalog', component: CatalogComponent },
-  { path: 'config', component: ConfigComponent },
-  { path: 'confirmation', component: ConfirmationComponent },
-  { path: 'shipping', component: ShippingComponent }
+  { path: '', redirectTo: 'signup', pathMatch: 'full' },
+  {
+    path: 'home', component: HomeComponent, children: [
+      { path: 'catalog', component: CatalogComponent },
+      { path: 'cart', component: CartComponent },
+      { path: 'config', component: ConfigComponent },
+    ]
+  },
+  { path: 'shipping', component: ShippingComponent },
+  { path: 'signup', component: SignupComponent }
 ];
 
 @NgModule({
@@ -32,7 +39,9 @@ const routes: Routes = [
     CatalogComponent,
     ConfigComponent,
     ShippingComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    SignupComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

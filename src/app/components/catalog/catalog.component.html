@@ -1,6 +1,6 @@
 <div class="container">
   <h2>
-    <a routerLink="/config" routerLinkActive="active">Create a new shirt for your catalog</a>
+    <a [routerLink]="['../config']" routerLinkActive="active">Create a new shirt for your catalog</a>
   </h2>
   <h3 *ngIf="catalog && catalog.length === 0">Your catalog is empty.</h3>
   <div *ngIf="catalog && catalog.length > 0" class="catalog-container">

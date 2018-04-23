@@ -1,0 +1,15 @@
+form {
+    display: grid;
+    justify-content: center;
+}
+
+input {
+    margin-bottom: 10px;
+    width: 250px;
+    height: 20px;
+}
+
+button {
+    height: 30px;
+    background: lightskyblue;
+}

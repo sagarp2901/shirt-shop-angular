@@ -17,10 +17,10 @@ export class ShippingComponent implements OnInit {
 
   constructor(private router: Router, private formBuilder: FormBuilder, private commonService: CommonService) {
     this.shippingForm = formBuilder.group({
-      firstName: [null, Validators.required],
+      /* firstName: [null, Validators.required],
       lastName: [null, Validators.required],
       email: [null, Validators.required],
-      phone: [null, Validators.required],
+      phone: [null, Validators.required], */
       address: [null, Validators.required],
       city: [null, Validators.required],
       country: ["", Validators.required],
@@ -37,9 +37,14 @@ export class ShippingComponent implements OnInit {
     }
   }
 
-  submitOrder() {
+  /* submitOrder() {
     this.commonService.setAddress(this.shippingForm.value);
     this.router.navigateByUrl("/confirmation");
+  } */
+
+  saveAddress() {
+    this.commonService.setAddress(this.shippingForm.value);
+    this.router.navigateByUrl("/home");
   }
 
 }

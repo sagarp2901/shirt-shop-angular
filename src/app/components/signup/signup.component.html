@@ -1,0 +1,10 @@
+<div class="container">
+  <form [formGroup]="signupForm" (ngSubmit)="signup()">
+    <input type="text" placeholder="Name*" formControlName="name" />
+    <input type="text" placeholder="Email*" formControlName="email" />
+    <input type="password" placeholder="Password*" formControlName="password" />
+    <input type="password" placeholder="Confirm Password*" formControlName="confirmPassword" />
+    <input type="text" placeholder="Mobile Number" formControlName="mobile" />
+    <button type="submit" [disabled]="!signupForm.valid">Sign Up!</button>
+  </form>
+</div>

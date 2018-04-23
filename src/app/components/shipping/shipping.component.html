@@ -1,6 +1,6 @@
 <div class="container">
-  <form [formGroup]="shippingForm" (ngSubmit)="submitOrder()">
-    <div class="label">First Name</div>
+  <form [formGroup]="shippingForm" (ngSubmit)="saveAddress()">
+    <!-- <div class="label">First Name</div>
     <input type="text" formControlName="firstName" />
     <div class="alert" *ngIf="!shippingForm.controls['firstName'].valid && shippingForm.controls['firstName'].touched">First Name Required</div>
     <div class="label">Last Name</div>
@@ -11,7 +11,7 @@
     <div class="alert" *ngIf="!shippingForm.controls['email'].valid && shippingForm.controls['email'].touched">Email Required</div>
     <div class="label">Phone Number</div>
     <input type="text" formControlName="phone" />
-    <div class="alert" *ngIf="!shippingForm.controls['phone'].valid && shippingForm.controls['phone'].touched">Phone Required</div>
+    <div class="alert" *ngIf="!shippingForm.controls['phone'].valid && shippingForm.controls['phone'].touched">Phone Required</div> -->
     <div class="label">Address</div>
     <input type="text" formControlName="address" />
     <div class="alert" *ngIf="!shippingForm.controls['address'].valid && shippingForm.controls['address'].touched">Address Required</div>
