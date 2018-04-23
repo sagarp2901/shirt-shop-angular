@@ -41,14 +41,14 @@ export class CartComponent implements OnInit {
     }
   }
 
-  goToShipping() {
+  reviewOrder() {
     let finalOrder = {
       items: this.items,
       totalQuantity: this.totalQuantity,
       totalPrice: this.totalPrice
     }
     this.commonService.setFinalOrderItems(finalOrder);
-    this.router.navigateByUrl('/shipping');
+    this.router.navigateByUrl('/review');
   }
 
   recalculateTotal() {

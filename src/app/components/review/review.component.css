@@ -1,0 +1,28 @@
+.cart-container, .total-container {
+    text-align: center;
+}
+.cart-headers, .cart-items, .total-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.cart-headers {
+    font-weight: 900;
+}
+
+.shipping-container {
+    display: grid;
+    justify-content: center;
+}
+
+.flex-des {
+flex-basis: 25%;
+}
+
+.flex-sub, .flex-no {
+    flex-basis: 35%;
+}
+
+.flex-quant {
+    flex-basis: 5%;
+}

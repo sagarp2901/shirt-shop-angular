@@ -1,5 +1,5 @@
-<div class="container" *ngIf="finalCart">
-  <h2>Thank You! Your order has been placed.</h2>
+<div class="container">
+  <h2>Review your order</h2>
   <div class="cart-container">
     <div class="cart-headers">
       <div class="flex-no">Item No.</div>
@@ -39,5 +39,9 @@
       <strong>Phone:</strong>{{' ' + user.mobile}}</div>
     <div>
       <strong>Special Instructions (if any):</strong>{{' ' + address.instructions}}</div>
+  </div>
+  <div class="address-container">
+    <input type="checkbox" name="differentAddress" value="true" (change)="differentAddress()"> Ship to a different address?
+    <app-shipping *ngIf="hasDifferentAddress" [hasDifferentAddress]="hasDifferentAddress"></app-shipping>
   </div>
 </div>

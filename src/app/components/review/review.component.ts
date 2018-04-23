@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from "../../services/common.service";
 @Component({
-  selector: 'app-confirmation',
-  templateUrl: './confirmation.component.html',
-  styleUrls: ['./confirmation.component.css']
+  selector: 'app-review',
+  templateUrl: './review.component.html',
+  styleUrls: ['./review.component.css']
 })
-export class ConfirmationComponent implements OnInit {
+export class ReviewComponent implements OnInit {
 
   finalCart: any;
   address: any;
   user: any;
+  hasDifferentAddress: boolean = false;
 
   constructor(private commonService: CommonService) { }
 
@@ -17,5 +18,9 @@ export class ConfirmationComponent implements OnInit {
     this.finalCart = this.commonService.getFinalOrderItems();
     this.address = this.commonService.getAddress();
     this.user = this.commonService.getUser();
+  }
+
+  differentAddress() {
+    this.hasDifferentAddress = !this.hasDifferentAddress;
   }
 }

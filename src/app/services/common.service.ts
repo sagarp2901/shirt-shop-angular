@@ -6,8 +6,8 @@ export class CommonService {
     shirtsInCart = [];
     shirtsInCatalog = [];
     finalItems: any;
-
     address: any;
+    user: any;
 
     public catalogUpdated = new Subject<any>();
     public cartUpdated = new Subject<any>();
@@ -73,5 +73,13 @@ export class CommonService {
     }
     getFinalOrderItems() {
         return this.finalItems;
+    }
+
+    setUser(user) {
+        this.user = user;
+    }
+
+    getUser() {
+        return this.user;
     }
 }

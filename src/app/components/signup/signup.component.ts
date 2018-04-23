@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { CommonService } from "../../services/common.service";
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
@@ -10,12 +11,9 @@ export class SignupComponent implements OnInit {
 
   signupForm: FormGroup;
 
-  // Output to notify the parent home component
-  @Output() signupStatus = new EventEmitter<any>();
-
   signupSuccessful: boolean;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private commonService: CommonService) {
     this.signupForm = formBuilder.group({
       name: [null, Validators.required],
       email: [null, Validators.required],
@@ -23,17 +21,13 @@ export class SignupComponent implements OnInit {
       confirmPassword: [null, Validators.required],
       mobile: [null]
     });
-
-    // this.signupSuccessful = false;
   }
 
   ngOnInit() {
   }
 
   signup() {
-    // this.signupSuccessful = true;
-    // Emit event for the home component to switch from signup to navbar
-    // this.signupStatus.emit(this.signupSuccessful);
+    this.commonService.setUser(this.signupForm.value);
     this.router.navigateByUrl('/shipping');
 
   }

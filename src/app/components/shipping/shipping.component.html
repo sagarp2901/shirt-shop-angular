@@ -36,7 +36,7 @@
     <div class="label">Special Instructions</div>
     <input type="text" formControlName="instructions" />
     <div class="submit-btn">
-      <button type="submit" [disabled]="!shippingForm.valid">Submit Order</button>
+      <button type="submit" [disabled]="!shippingForm.valid">{{hasDifferentAddress? 'Place Order':'View Catalog'}}</button>
     </div>
   </form>
 </div>

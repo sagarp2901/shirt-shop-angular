@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { COUNTRIES, REGIONS } from "../../models/countries-regions.model";
 import { Router } from "@angular/router";
@@ -10,6 +10,7 @@ import { CommonService } from "../../services/common.service";
   styleUrls: ['./shipping.component.css']
 })
 export class ShippingComponent implements OnInit {
+  @Input() hasDifferentAddress: boolean = false;
   private states = REGIONS;
   private countries = COUNTRIES;
 
@@ -44,7 +45,11 @@ export class ShippingComponent implements OnInit {
 
   saveAddress() {
     this.commonService.setAddress(this.shippingForm.value);
-    this.router.navigateByUrl("/home");
+    if (this.hasDifferentAddress) {
+      this.router.navigateByUrl("/confirmation");
+    } else {
+      this.router.navigateByUrl("/home/catalog");
+    }
   }
 
 }
