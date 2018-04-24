@@ -6,7 +6,7 @@ To prepare for the process of coding the solution yourself, run the commands bel
 
 1. Get a local copy of the master branch. 
 ```
-git clone <git branch required>
+git clone git@github.com:sagarpdev6/shirt-shop-angular.git
 cd shirt-shop-angular
 ```
 > This gives you the completed version of the application.
