@@ -1,27 +1,48 @@
-# ShirtShopAngular
+## Getting Started
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.7.
+This repository exists to support the lab exercises that come with the [Angular Fundamentals course](https://www.dev6.com/Angular-Training-Course) offered by DEV6. Each lab exercise has its own branch with commits that reflect the changes you'll make as you follow the lab steps. You can choose to simply study those commits or you can write the code yourself. 
 
-## Development server
+To prepare for the process of coding the solution yourself, run the commands below.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Get a local copy of the master branch. 
+```
+git clone <git branch required>
+cd shirt-shop-angular
+```
+> This gives you the completed version of the application.
 
-## Code scaffolding
+2. List the remote branches.
+```
+git remote show origin
+```
+> When you clone a repository, you don't get all available branches.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+3. Get a copy of the branch for the lab you want to work on.
+```
+git checkout origin/<remote-branch-name>
+```
+> ```<remote-branch-name>``` is the name of the branch that was listed in the output from the previous step.
 
-## Build
+4. Inspect the commits in this new branch. 
+```
+git log --oneline
+```
+> Every ```lab-*``` branch has a commit whose message starts with "starting point...". This commit represents the master branch with some of the code removed.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+5. Check out the "starting point..." commit.  
+```
+git checkout <hash-for-the-starter-commit>
+```
+> ```<hash-for-the-starter-commit>``` is the first few letters from the commit hash. You will see a message indicating that you are in a 'detatched HEAD' state and a suggestion to check out a new branch name.
 
-## Running unit tests
+6. Create a new branch to track your progress.  
+```
+git checkout -b <new-branch-name>
+```
+> ```<new-branch-name>``` is an arbitrary name of your choosing. The original branch should be left untouched since it contains the solution. You should commit your changes on your own branch as you work through the exercise.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+7. As you make progress, commit your changes.
+```
+git add .
+git commit -m "describe what you did"
+```
